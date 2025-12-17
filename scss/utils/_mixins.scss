@@ -1,0 +1,17 @@
+@use "../utils/placeholders" as *;
+@use "../utils/variables" as *;
+
+@mixin button($padding) {
+  background-color: $accent-color;
+  padding: $padding;
+  border-radius: 10px;
+  border: 0;
+  color: $dark-txt-color;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  line-height: 18px;
+}

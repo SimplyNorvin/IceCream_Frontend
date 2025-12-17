@@ -1,0 +1,271 @@
+@use "../utils/placeholders" as *;
+@use "../utils/variables" as *;
+@use '../utils/mixins' as *;
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero {
+    background: url(../images/dots@2x.png) bottom;
+  }
+}
+
+.hero {
+  background: url(../images/dots.png) bottom;
+  background-repeat: no-repeat;
+  background-color: $bg-color;
+  padding-top: 31px;
+
+  &__container {
+    display: flex;
+  }
+
+  &__title {
+    color: $light-txt-color;
+    font-weight: 400;
+    font-size: 38px;
+    text-transform: uppercase;
+    width: 367px;
+    font-family: $second-family;
+    padding-bottom: 28px;
+    line-height: 48px;
+  }
+
+  &__btn {
+    color: $dark-txt-color;
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    padding: 12px 34px;
+    margin-bottom: 42px;
+    border-radius: 10px;
+    gap: 5px;
+    font-weight: 600;
+    transition: border ease-in 0.3s;
+    text-align: center;
+    line-height: 18px;
+  }
+
+  &__link {
+    color: $accent-color;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 21px 11px 22px;
+    margin-left: 12px;
+    line-height: 17px;
+
+    &:hover {
+      color: $btn-hover;
+    }
+    &:focus {
+      color: $light-txt-color;
+    }
+  }
+
+  &__desc {
+    width: 200px;
+    font-size: 14px;
+    font-family: $fourth-family;
+    line-height: 20px;
+    padding-bottom: 24px;
+    letter-spacing: 0;
+  }
+
+  &__img {
+    max-width: 225px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 65px;
+    align-items: center;
+  }
+
+  &__faces-img {
+    max-width: 456px;
+  }
+
+  &__txt-wrapper {
+    margin-right: 192px;
+    // Без цього список ломається
+  }
+
+  &__icon {
+    fill: $light-txt-color;
+    width: 40px;
+    height: 16px;
+  }
+
+  &__arrow-link {
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 22px;
+  }
+
+  &__item {
+    text-align: right;
+
+    &-title {
+      color: $dark-txt-color;
+      font-size: 46px;
+      line-height: 56px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    &-desc {
+      font-size: 14px;
+      color: $light-txt-color;
+      letter-spacing: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background: url(../images/dots-tablet.png) bottom;
+    background-repeat: no-repeat;
+    background-color: $bg-color;
+
+    &__list {
+      margin-left: 14px;
+      gap: 20px;
+      padding-top: 14px;
+    }
+    &__title {
+      font-size: 26px;
+      width: 247px;
+      padding-bottom: 24px;
+      line-height: 32px;
+
+      &-span {
+        font-size: 34px;
+        line-height: 30px;
+        // без цього розмір заголовка був на 2 пікселі більшим
+      }
+    }
+
+    &__wrapper {
+      gap: 32px;
+      padding-bottom: 0;
+    }
+    &__txt-wrapper {
+      margin-right: 27px;
+      padding-top: 27px;
+      padding-bottom: 12px;
+    }
+    &__faces-img {
+      padding-top: 6px;
+    }
+    &__desc {
+      font-size: 12px;
+      padding-bottom: 29px;
+      width: 165px;
+      line-height: 17px;
+    }
+    &__link {
+      font-size: 12px;
+      line-height: 24px;
+      padding: 0;
+      padding-top: 7px;
+    }
+    &__item {
+      &-title {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      &-desc {
+        font-size: 8px;
+        line-height: 10px;
+      }
+    }
+    &__txt-wrapper {
+      padding-top: 27px;
+      padding-bottom: 12px;
+    }
+    &__btn {
+      margin-bottom: 12px;
+      padding: 11px 26px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background: url(../images/dots-tablet@2x.png) bottom / no-repeat;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background: url(../images/dots-small.png) bottom right;
+    background-repeat: no-repeat;
+    background-color: $bg-color;
+    position: relative;
+    padding-bottom: 150px;
+
+    &__container {
+      flex-direction: column;
+    }
+
+    &__title {
+      padding-bottom: 32px;
+    }
+
+    &__faces-img {
+      position: absolute;
+      bottom: 0px;
+      right: 20px;
+    }
+
+    &__wrapper, &__list {
+      display: none;
+    }
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background: url(../images/dots-small@2x.png) bottom right / no-repeat;
+      background-repeat: no-repeat;
+      background-color: $bg-color;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    background: url(../images/dots-mobile.png) bottom;
+    background-repeat: no-repeat;
+    background-color: $bg-color;
+    position: static;
+    padding-bottom: 0;
+
+    &__faces-img {
+      margin-left: 63px;
+      position: static;
+    }
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background: url(../images/dots-mobile@3x.png) bottom / no-repeat;
+      background-repeat: no-repeat;
+      background-color: $bg-color;
+    }
+  }
+}

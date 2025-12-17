@@ -1,0 +1,163 @@
+@use "../utils/placeholders" as *;
+@use "../utils/variables" as *;
+@use '../utils/mixins' as *;
+
+input[type="checkbox"],
+label {
+  display: none;
+}
+
+.nav {
+  display: none;
+
+  &__button {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    order: 1;
+  }
+
+  label {
+    display: block;
+  }
+
+  label {
+    padding: 14.67px 4px;
+  }
+
+  label span,
+  label span::before,
+  label span::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2.67px;
+    background: $burger-line-color;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  label span::before {
+    top: -8px;
+    position: absolute;
+  }
+
+  label span::after {
+    top: 8px;
+    position: absolute;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  #toggle:checked ~ .nav {
+    display: flex;
+  }
+
+  #toggle:checked ~ body {
+    position: fixed;
+  }
+
+  .nav {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: $bg-color;
+    padding-top: 140px;
+    padding-bottom: 528px;
+    height: 100vh;
+    // для кращої роботи на мобільних пристроях
+  }
+
+  .header__list {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .header__link {
+    color: $light-txt-color;
+    font-size: 48px;
+    letter-spacing: 0;
+    font-weight: 700;
+
+    &:hover {
+      color: $dark-txt-color;
+    }
+  }
+
+  input[type="checkbox"]:checked ~ label span {
+    transform: rotate(-45deg);
+  }
+  input[type="checkbox"]:checked ~ body {
+    overflow: hidden;
+  }
+  input[type="checkbox"]:checked ~ label span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  input[type="checkbox"]:checked ~ label span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    z-index: 3;
+  }
+
+  input[type="checkbox"]:checked ~ .logo {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+    padding: 0;
+  }
+
+  .logo {
+    z-index: 3;
+
+    &__img {
+      max-width: 48px;
+      height: 44px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .header {
+    &__list {
+      gap: 32px;
+    }
+
+    &__link {
+      font-size: 32px;
+    }
+
+    label {
+      margin-bottom: 12px;
+    }
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 114px;
+    padding-top: 104px;
+    padding-bottom: 88px;
+
+    &__button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use '../utils/placeholders' as *;
+@use '../utils/variables' as *;
+
+.button {
+  transition: 0.3s;
+  
+  &:hover {
+    background-color: $btn-hover;
+  }
+
+  &:focus {
+    background-color: $btn-hover;
+    color: #fff;
+    fill: #fff;
+  }
+
+  &--hover {
+    &:hover {
+      border: 2px solid $btn-hover;
+    }
+
+    &:focus {
+      border: 2px solid $btn-hover;
+      color: #fff;
+      fill: #fff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    font-size: 12px;
+  }
+}

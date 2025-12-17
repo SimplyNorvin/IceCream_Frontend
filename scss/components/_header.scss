@@ -1,0 +1,212 @@
+@use "../utils/placeholders" as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.header {
+  padding-top: 8px;
+  background-color: $bg-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 208px;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 28px;
+  }
+
+  &__link {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1;
+    color: $light-txt-color;
+    font-weight: 600;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  &__btn {
+    @include button(12px 36px);
+
+    &-icon {
+      width: 12px;
+      height: 12px;
+
+      &:focus {
+        fill: $light-txt-color;
+      }
+    }
+  }
+}
+
+.buy {
+  padding: 32px 54px;
+  border-radius: 10px;
+  border: 2px solid $accent-color;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $second-family;
+    color: $dark-txt-color;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: center;
+    padding-bottom: 113px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 40px;
+    justify-content: center;
+  }
+
+  &__btn {
+    margin-top: 16px;
+  }
+
+  &__item {
+    padding: 93px 13px 18px 13px;
+    border: 2px solid $buy-green-border;
+    border-radius: 15px;
+    position: relative;
+
+    &--yellow {
+      background-color: $yellow-card-bg;
+      border-color: $yellow-card-bg;
+    }
+
+    &--orange {
+      border-color: $card-orange-bg;
+    }
+
+    &-title {
+      color: $dark-txt-color;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
+      line-height: 20px;
+
+      &--padding {
+        padding-left: 3px;
+        padding-right: 3px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 132px;
+    height: 132px;
+    border-radius: 100%;
+    top: -7px;
+
+    &-wrapper {
+      position: absolute;
+      width: 132px;
+      height: 132px;
+      top: -63px;
+      left: 0px;
+      border-radius: 100%;
+      background-color: $card-rect-bg-green;
+      box-shadow: 0px 5px 19px 0px $buy-wrapper-shadow;
+
+      &--yellow {
+        box-shadow: 0px 5px 19px 0px $card-rect-shadow-yellow;
+        background-color: $buy-wrapper-yellow-bg;
+      }
+
+      &--orange {
+        box-shadow: 0px 5px 19px 0px $card-rect-shadow-brown;
+        background-color: $card-orange-bg;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-top: 20px;
+    padding-bottom: 14px;
+
+    &__container {
+      justify-content: space-between;
+    }
+
+    &__wrapper {
+      gap: 32px;
+      padding-top: 4px;
+      padding-bottom: 0;
+      align-items: center;
+    }
+
+    .logo {
+      padding-bottom: 2px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-bottom: 40px;
+    padding-top: 14px;
+
+    &__container {
+      align-items: center;
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    &__wrapper {
+      padding: 0;
+    }
+
+    &__btn {
+      display: none;
+    }
+    .logo {
+      padding: 0;
+    }
+  }
+
+  .buy {
+    padding: 28px;
+
+    &__title {
+      font-size: 16px;
+      padding-bottom: 83px;
+      line-height: 24px;
+    }
+
+    &__list {
+      flex-direction: column;
+      gap: 82px;
+      padding-bottom: 32px;
+    }
+
+    &__item {
+      padding-top: 96px;
+      width: 132px;
+      margin: 0 auto;
+
+      &-title {
+        display: inline-block;
+      }
+    }
+
+    &__img-wrapper {
+      transform: translateX(-1%);
+    }
+  }
+}

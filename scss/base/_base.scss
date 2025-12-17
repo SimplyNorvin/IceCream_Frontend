@@ -1,0 +1,37 @@
+@use '../utils/placeholders' as *;
+@use '../utils/variables' as *;
+
+body {
+  font-family: $font-family;
+  color: $light-txt-color;
+  letter-spacing: 0.04em;
+}
+
+.container {
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+.animation {
+  transition-property: color, background-color, fill, text-decoration !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 200ms !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 704px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    max-width: 280px;
+  }
+}

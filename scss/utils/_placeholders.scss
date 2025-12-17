@@ -1,0 +1,9 @@
+@use '../utils/variables' as *;
+
+%title {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $light-txt-color;
+    font-size: 58px;
+    font-weight: 700;
+}
